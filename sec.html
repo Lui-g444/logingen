@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Security Reminder</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      flex-direction: column;
+    }
+    #progressBar {
+      width: 300px;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    #progress {
+      width: 0%;
+      height: 20px;
+      background-color: #007BFF;
+      transition: width 2s;
+    }
+    #securityReminder {
+      margin-top: 30px;
+      color: green;
+      font-weight: bold;
+      display: none;
+      text-align: left;
+      max-width: 400px;
+      background-color: #e6ffe6;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #securityReminder ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="loadingText">Loading...</h2>
+  <div id="progressBar"><div id="progress"></div></div>
+
+  <div id="securityReminder">
+    *Security Reminders*:
+    <ul>
+      <li>Always verify the website URL before entering your credentials. Stay alert to phishing attempts.</li>
+      <li>Always use strong passwords containing letters (A-Z), numbers (1-9), and special characters.</li>
+      <li>Protect your personal information as if it were treasure!</li>
+    </ul>
+  </div>
+
+  <script>
+    setTimeout(function() {
+      document.getElementById("progress").style.width = "100%";
+    }, 100);
+
+    setTimeout(function() {
+      document.getElementById("progressBar").style.display = "none";
+      document.getElementById("loadingText").style.display = "none";
+      document.getElementById("securityReminder").style.display = "block";
+    }, 2100);
+  </script>
+</body>
+</html>
+

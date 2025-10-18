@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phishing Awareness Simulator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: left;
+    }
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f51a54;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="Username">
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="validatePassword()">Login</button>
+    <p id="message"></p>
+  </div>
+
+ <script>
+  function validatePassword() {
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    if (password === "") {
+      message.innerText = "Required password.";
+    } else if (/^[a-zA-Z]+$/.test(password)) {
+      message.innerText = "Password is too weak. Password must contain numbers, letters, and special characters.";
+    } else if (/^[0-9]+$/.test(password)) {
+      message.innerText = "Password is too weak. Password must contain numbers, letters, and special characters.";
+    } else if (password.length < 8) {
+      message.innerText = "Password must be 8 or more characters and contain letters, numbers, and special characters.";
+    } else {
+      message.innerText = "Be careful! This is a simulated phishing page. Never enter your credentials on suspicious websites.";
+      setTimeout(() => {
+        window.location.href = "sec.html";
+      }, 2000);
+    }
+  }
+</script>
+</body>
+</html>
+
